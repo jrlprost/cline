@@ -116,7 +116,7 @@ cline --json "List all TODO comments" | jq -r 'select(.type == "agent_event" and
 - OAuth login for Cline, ChatGPT Subscription (`openai-codex`), and OCA
 - Configurable thinking budgets per run
 - Cron and event-driven schedules for recurring agent work
-- Chat connectors for Telegram, Google Chat, and WhatsApp
+- Chat connectors for Telegram, Slack, Discord, Google Chat, WhatsApp, and Linear
 
 ## Usage
 
@@ -189,7 +189,7 @@ Because this command opens the wizard, it requires a TTY.
 
 ### Connectors
 
-Bridge a chat surface into RPC-backed Cline sessions. Each conversation thread maps to a session with full context. Supported platforms: Telegram, Slack, Google Chat, WhatsApp, and Linear.
+Bridge a chat surface into RPC-backed Cline sessions. Each conversation thread maps to a session with full context. Supported platforms: Telegram, Slack, Discord, Google Chat, WhatsApp, and Linear.
 
 ```sh
 # Telegram (polling mode)
