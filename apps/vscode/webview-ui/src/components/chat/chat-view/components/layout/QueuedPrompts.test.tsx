@@ -56,4 +56,21 @@ describe("QueuedPrompts", () => {
 
 		expect(container).toBeEmptyDOMElement()
 	})
+
+	it("scrolls the queue container to the bottom when a new message is added", () => {
+		const { container, rerender } = render(<QueuedPrompts items={queuedPrompts} />)
+		const scrollContainer = container.querySelector(".overflow-y-auto") as HTMLDivElement
+
+		Object.defineProperty(scrollContainer, "scrollHeight", { configurable: true, value: 100 })
+		rerender(
+			<QueuedPrompts
+				items={[
+					...queuedPrompts,
+					{ id: "prompt-3", prompt: "Third queued message", delivery: "queue", attachmentCount: 0 },
+				]}
+			/>,
+		)
+
+		expect(scrollContainer.scrollTop).toBe(100)
+	})
 })
